@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import {
 	Container,
+	Button,
 	ListGroup,
 	ListGroupItem,
 	ListGroupItemHeading,
@@ -19,21 +20,19 @@ const Home = () => {
 	const type = 'top';
 	const { isLoading, stories } = useDataFetcher(type);
 
-	console.log(stories);
-
 	return (
 		<>
-			{isLoading ? (
-				<p>Loading...</p>
-			) : (
-				<div className={styles.container}>
-					<Head>
-						<title>Hacker News</title>
-						<link rel="icon" href="/y18.png" />
-					</Head>
-					<main className={styles.main}>
-						<Navbar />
-						<Container>
+			<div className={styles.container}>
+				<Head>
+					<title>Hacker News</title>
+					<link rel="icon" href="/y18.png" />
+				</Head>
+				<main className={styles.main}>
+					<Navbar />
+					<Container>
+						{isLoading ? (
+							<p>Loading...</p>
+						) : (
 							<ListGroup className="mt-2">
 								{stories.map(
 									({
@@ -55,10 +54,11 @@ const Home = () => {
 									}
 								)}
 							</ListGroup>
-						</Container>
-					</main>
-				</div>
-			)}
+						)}
+						<Button className="mt-2 mb-2">More</Button>
+					</Container>
+				</main>
+			</div>
 		</>
 	);
 };
