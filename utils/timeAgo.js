@@ -17,12 +17,12 @@ export default function timeAgo(ts) {
 	}
 
 	if (seconds > 3600) {
-		return 'a few hours ago';
+		return `${Math.floor(seconds / 3600)} hours ago`;
 	}
 	if (seconds > 1800) {
-		return 'Half an hour ago';
+		return `half an hour ago`;
 	}
 	if (seconds > 60) {
-		return Math.floor(seconds / 60) + ' minutes ago';
+		return `${Math.floor(seconds / 60)} minutes ago`;
 	}
 }
