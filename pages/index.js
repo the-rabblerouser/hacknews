@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { Container } from 'reactstrap';
 
 import styles from '../styles/Home.module.css';
