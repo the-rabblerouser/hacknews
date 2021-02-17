@@ -28,7 +28,7 @@ const Navigation = () => {
 					<Collapse isOpen={isOpen} navbar>
 						<Nav className="mr-auto" navbar>
 							<NavItem>
-								<Link href="/new" as={`/new`}>
+								<Link href="/new" as={`/`}>
 									<NavLink href="/new">new</NavLink>
 								</Link>
 							</NavItem>
