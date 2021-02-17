@@ -6,8 +6,11 @@ import {
 	ListGroupItemHeading,
 	ListGroupItemText,
 	Button,
+	Spinner,
 } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
+
+import styles from '../styles/list.module.css';
 
 import useDataFetcher from '../components/hooks/useDataFetcher';
 import timeAgo from '../utils/timeAgo';
@@ -17,7 +20,11 @@ const List = () => {
 	const { isLoading, stories } = useDataFetcher(type);
 
 	if (isLoading) {
-		return <p>Loading...</p>;
+		return (
+			<div className={styles.spinner}>
+				<Spinner children="" />
+			</div>
+		);
 	}
 	return (
 		<>
