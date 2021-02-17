@@ -5,14 +5,14 @@ import styles from '../styles/Home.module.css';
 import Navbar from '../components/Navbar';
 import List from '../components/List';
 
-const Home = () => {
+const Jobs = () => {
 	return (
 		<>
 			<div className={styles.container}>
 				<main className={styles.main}>
 					<Navbar />
 					<Container>
-						<List type="top" />
+						<List type="job" />
 					</Container>
 				</main>
 			</div>
@@ -20,4 +20,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default Jobs;

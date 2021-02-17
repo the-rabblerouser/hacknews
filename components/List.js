@@ -15,8 +15,7 @@ import styles from '../styles/list.module.css';
 import useDataFetcher from '../components/hooks/useDataFetcher';
 import timeAgo from '../utils/timeAgo';
 
-const List = () => {
-	const type = 'top';
+const List = ({ type }) => {
 	const { isLoading, stories } = useDataFetcher(type);
 
 	if (isLoading) {
