@@ -10,7 +10,7 @@ const getStory = async (id) => {
 	}
 };
 
-export const getStories = async (type) => {
+export const getStories = async (type, start, end) => {
 	try {
 		const { data: storyIds } = await axios.get(
 			`${BASE_API_URL}/${type}stories.json`
