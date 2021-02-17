@@ -40,7 +40,13 @@ const List = ({ type }) => {
 										<a href={url}>{title}</a>
 									</ListGroupItemHeading>
 									<ListGroupItemText className="text-muted">
-										{score} points by {by} {timeAgo(time)} |{' '}
+										{score} points by{' '}
+										<span>
+											<Link href={`/[$id]`} as={`/${by}`}>
+												<a>{by}</a>
+											</Link>
+										</span>{' '}
+										{timeAgo(time)} |{' '}
 										<span>
 											<Link href={`/${type}/[$id]`} as={`/${type}/${id}`}>
 												<a>{descendants} comments</a>
