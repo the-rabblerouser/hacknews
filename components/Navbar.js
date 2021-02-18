@@ -28,8 +28,8 @@ const Navigation = () => {
 					<Collapse isOpen={isOpen} navbar>
 						<Nav className="mr-auto" navbar>
 							<NavItem>
-								<Link href="/new" as={`/new`}>
-									<NavLink href="/new">new</NavLink>
+								<Link href="/" as={`/`}>
+									<NavLink href="/">new</NavLink>
 								</Link>
 							</NavItem>
 							<span className="mt-2">|</span>
