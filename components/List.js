@@ -35,7 +35,7 @@ const List = ({ type }) => {
 			<ListGroup className="mt-2">
 				{stories
 					.filter((str) => (str.data === null ? false : true))
-					.map(({ data: { by, title, url, score, time, descendants } }) => {
+					.map(({ data: { by, title, url, score, time, descendants, id } }) => {
 						return (
 							<div key={uuidv4()}>
 								<ListGroupItem className="ps-5">
