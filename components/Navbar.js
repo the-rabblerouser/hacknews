@@ -32,23 +32,27 @@ const Navigation = () => {
 									<NavLink href="/">new</NavLink>
 								</Link>
 							</NavItem>
+							<span className="mt-2">|</span>
 							<NavItem>
 								<Link href="/best" as={`/best`}>
 									<NavLink href="/front">best</NavLink>
 								</Link>
 							</NavItem>
+							<span className="mt-2">|</span>
 							<NavItem>
 								<Link href="/ask" as={`/ask`}>
 									<NavLink href="/ask">ask</NavLink>
 								</Link>
 							</NavItem>
+							<span className="mt-2">|</span>
 							<NavItem>
 								<Link href="/show" as={`/show`}>
 									<NavLink href="/show">show</NavLink>
 								</Link>
 							</NavItem>
+							<span className="mt-2">|</span>
 							<NavItem>
-								<Link href="/jobs" as={`/jobs`}>
+								<Link href="/jobs" as={`/job`}>
 									<NavLink href="/jobs">jobs</NavLink>
 								</Link>
 							</NavItem>

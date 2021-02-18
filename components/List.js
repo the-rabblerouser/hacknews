@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import {
 	ListGroup,
@@ -17,6 +18,8 @@ import timeAgo from '../utils/timeAgo';
 
 const List = ({ type }) => {
 	const { isLoading, stories } = useDataFetcher(type);
+
+	console.log(stories);
 
 	if (isLoading) {
 		return (
@@ -40,8 +43,18 @@ const List = ({ type }) => {
 										<a href={url}>{title}</a>
 									</ListGroupItemHeading>
 									<ListGroupItemText className="text-muted">
-										{score} points by {by} {timeAgo(time)} | {descendants}{' '}
-										comments
+										{score} points by{' '}
+										<span>
+											<Link href={`/[$id]`} as={`/${by}`}>
+												<a>{by}</a>
+											</Link>
+										</span>{' '}
+										{timeAgo(time)} |{' '}
+										<span>
+											<Link href={`/${type}/[$id]`} as={`/${type}/${id}`}>
+												<a>{descendants} comments</a>
+											</Link>
+										</span>
 									</ListGroupItemText>
 								</ListGroupItem>
 							</div>
