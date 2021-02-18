@@ -12,7 +12,7 @@ const Home = () => {
 				<main className={styles.main}>
 					<Navbar />
 					<Container>
-						<List type="top" />
+						<List type="new" />
 					</Container>
 				</main>
 			</div>

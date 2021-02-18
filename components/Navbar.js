@@ -29,7 +29,7 @@ const Navigation = () => {
 						<Nav className="mr-auto" navbar>
 							<NavItem>
 								<Link href="/" as={`/`}>
-									<NavLink href="/new">new</NavLink>
+									<NavLink href="/">new</NavLink>
 								</Link>
 							</NavItem>
 							<NavItem>
