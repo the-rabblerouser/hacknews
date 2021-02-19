@@ -19,8 +19,6 @@ import timeAgo from '../utils/timeAgo';
 const List = ({ type }) => {
 	const { isLoading, stories } = useDataFetcher(type);
 
-	console.log(stories);
-
 	if (isLoading) {
 		return (
 			<div className={styles.spinner}>
@@ -28,8 +26,6 @@ const List = ({ type }) => {
 			</div>
 		);
 	}
-
-	console.log(stories);
 	return (
 		<>
 			<ListGroup className="mt-2">

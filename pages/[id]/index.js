@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
@@ -10,14 +11,11 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const index = () => {
 	const router = useRouter();
-	console.log(router.query.id);
 
 	const { data, error } = useSWR(
 		`https://hacker-news.firebaseio.com/v0/user/${router.query.id}.json?print=pretty`,
 		fetcher
 	);
-
-	console.log(data);
 
 	if (error) return <div>failed to load</div>;
 	if (!data) return <div>loading...</div>;
@@ -32,7 +30,13 @@ const index = () => {
 						</tr>
 						<tr>
 							<td>created: </td>
-							<td>{data.created}</td>
+							<td>
+								{new Date(data.created * 1000)
+									.toDateString('en-US')
+									.split(' ')
+									.slice(1)
+									.join(' ')}
+							</td>
 						</tr>
 						<tr>
 							<td>karma:</td>
@@ -44,6 +48,13 @@ const index = () => {
 						</tr>
 					</tbody>
 				</table>
+				<div className="mt-3">
+					<Link
+						href={`/[$id]/submissions`}
+						as={`/${router.query.id}/submissions`}>
+						<a style={{ textDecoration: 'underline' }}>submissions</a>
+					</Link>
+				</div>
 			</Container>
 		</>
 	);
