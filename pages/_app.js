@@ -2,6 +2,8 @@ import Head from 'next/head';
 
 import '../styles/globals.css';
 
+import Navbar from '../components/Navbar';
+
 function MyApp({ Component, pageProps }) {
 	return (
 		<>
@@ -9,6 +11,7 @@ function MyApp({ Component, pageProps }) {
 				<title>Hacker News</title>
 				<link rel="icon" href="/y18.png" />
 			</Head>
+			<Navbar />
 			<Component {...pageProps} />
 		</>
 	);
