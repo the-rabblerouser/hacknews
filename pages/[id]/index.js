@@ -13,7 +13,7 @@ const index = () => {
 	const router = useRouter();
 
 	const { data, error } = useSWR(
-		`https://hacker-news.firebaseio.com/v0/user/${router.query.id}.json?print=pretty`,
+		`https://hacker-news.firebaseio.com/v0/user/${router.query.name}.json?print=pretty`,
 		fetcher
 	);
 

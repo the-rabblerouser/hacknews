@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getStories } from '../../utils/apis';
 
-const useDataFetcher = (type, start, end) => {
+const useDataFetcher = (type) => {
 	const [stories, setStories] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 
