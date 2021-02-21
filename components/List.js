@@ -6,7 +6,6 @@ import {
 	ListGroupItem,
 	ListGroupItemHeading,
 	ListGroupItemText,
-	Button,
 	Spinner,
 } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
@@ -57,7 +56,6 @@ const List = ({ type }) => {
 						);
 					})}
 			</ListGroup>
-			<Button className="mt-2 mb-2">More</Button>
 		</>
 	);
 };
