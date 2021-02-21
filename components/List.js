@@ -41,7 +41,7 @@ const List = ({ type }) => {
 									<ListGroupItemText className="text-muted">
 										{score} points by{' '}
 										<span>
-											<Link href={`/[$id]`} as={`/${by}`}>
+											<Link href={{ pathname: '/user', query: { name: by } }}>
 												<a>{by}</a>
 											</Link>
 										</span>{' '}
