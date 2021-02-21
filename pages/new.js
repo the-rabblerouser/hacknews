@@ -2,14 +2,14 @@ import { Container } from 'reactstrap';
 
 import List from '../components/List';
 
-const Home = () => {
+const New = () => {
 	return (
 		<>
 			<Container>
-				<List type="top" />
+				<List type="new" />
 			</Container>
 		</>
 	);
 };
 
-export default Home;
+export default New;
