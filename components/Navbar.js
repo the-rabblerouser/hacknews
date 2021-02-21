@@ -19,41 +19,61 @@ const Navigation = () => {
 
 	return (
 		<>
-			<Navbar color="light" light expand="md" sticky={'top'}>
+			<Navbar
+				style={{ backgroundColor: '#ff6600' }}
+				light
+				expand="md"
+				sticky={'top'}>
 				<Container>
-					<NavbarBrand href="/">
-						<img src="/y18.png" alt="Y" className="mb-1" /> Hacker News
+					<NavbarBrand href="/" style={{ color: 'inherit' }}>
+						<img
+							src="/y18.png"
+							alt="Y"
+							className="mb-1"
+							style={{ border: ' 1px solid white' }}
+						/>{' '}
+						Hacker News
 					</NavbarBrand>
-					<NavbarToggler onClick={toggle} />
+					<NavbarToggler onClick={toggle} style={{ border: 'none' }} />
 					<Collapse isOpen={isOpen} navbar>
 						<Nav className="mr-auto" navbar>
 							<NavItem>
 								<Link href="/" as={`/`}>
-									<NavLink href="/">new</NavLink>
+									<NavLink href="/" style={{ color: 'inherit' }}>
+										new
+									</NavLink>
 								</Link>
 							</NavItem>
-							<span className="mt-2">|</span>
+
 							<NavItem>
 								<Link href="/best" as={`/best`}>
-									<NavLink href="/front">best</NavLink>
+									<NavLink href="/front" style={{ color: 'inherit' }}>
+										best
+									</NavLink>
 								</Link>
 							</NavItem>
-							<span className="mt-2">|</span>
+
 							<NavItem>
 								<Link href="/ask" as={`/ask`}>
-									<NavLink href="/ask">ask</NavLink>
+									<NavLink href="/ask" style={{ color: 'inherit' }}>
+										ask
+									</NavLink>
 								</Link>
 							</NavItem>
-							<span className="mt-2">|</span>
+
 							<NavItem>
 								<Link href="/show" as={`/show`}>
-									<NavLink href="/show">show</NavLink>
+									<NavLink href="/show" style={{ color: 'inherit' }}>
+										show
+									</NavLink>
 								</Link>
 							</NavItem>
-							<span className="mt-2">|</span>
+
 							<NavItem>
 								<Link href="/jobs" as={`/job`}>
-									<NavLink href="/jobs">jobs</NavLink>
+									<NavLink href="/jobs" style={{ color: 'inherit' }}>
+										jobs
+									</NavLink>
 								</Link>
 							</NavItem>
 						</Nav>
