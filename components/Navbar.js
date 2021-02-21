@@ -38,8 +38,8 @@ const Navigation = () => {
 					<Collapse isOpen={isOpen} navbar>
 						<Nav className="mr-auto" navbar>
 							<NavItem>
-								<Link href="/" as={`/`}>
-									<NavLink href="/" style={{ color: 'inherit' }}>
+								<Link href="/new" as={`/new`}>
+									<NavLink href="/new" style={{ color: 'inherit' }}>
 										new
 									</NavLink>
 								</Link>
@@ -47,7 +47,7 @@ const Navigation = () => {
 
 							<NavItem>
 								<Link href="/best" as={`/best`}>
-									<NavLink href="/front" style={{ color: 'inherit' }}>
+									<NavLink href="/best" style={{ color: 'inherit' }}>
 										best
 									</NavLink>
 								</Link>
