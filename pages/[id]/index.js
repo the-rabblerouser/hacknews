@@ -48,13 +48,13 @@ const index = () => {
 						</tr>
 					</tbody>
 				</table>
-				<div className="mt-3">
+				{/* <div className="mt-3">
 					<Link
 						href={`/[$id]/submissions`}
 						as={`/${router.query.id}/submissions`}>
 						<a style={{ textDecoration: 'underline' }}>submissions</a>
 					</Link>
-				</div>
+				</div> */}
 			</Container>
 		</>
 	);
