@@ -27,7 +27,7 @@ const List = ({ type }) => {
 	}
 	return (
 		<>
-			<ListGroup className="mt-2">
+			<ListGroup>
 				{stories
 					.filter((str) => (str.data === null ? false : true))
 					.map(({ data: { by, title, url, score, time, descendants, id } }) => {

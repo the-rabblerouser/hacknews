@@ -21,7 +21,7 @@ const index = () => {
 	if (!data) return <div>loading...</div>;
 	return (
 		<>
-			<Container>
+			<Container style={{ backgroundColor: '#F6F6EF' }}>
 				<table>
 					<tbody>
 						<tr>

@@ -47,7 +47,7 @@ const Navigation = () => {
 
 							<NavItem>
 								<Link href="/best" as={`/best`}>
-									<NavLink href="/best" style={{ color: 'inherit' }}>
+									<NavLink href="/front" style={{ color: 'inherit' }}>
 										best
 									</NavLink>
 								</Link>
