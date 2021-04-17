@@ -4,7 +4,7 @@
 
 This is a clone of the site [news.ycombinator.com](news.ycombinator.com) built with react and next.js.Built with **React, Next.js**.
 
-[Checkout it out!](https://hacknews-ruddy.vercel.app/
+[Checkout it out!](https://hacknews-ruddy.vercel.app/)
 
 
 ## Features
