@@ -1,4 +1,4 @@
-# Hacker News Clone - A place for me to showcase my work.
+# Hacker News Clone - a clone of the popular site Hacker News!
 ![React](https://img.shields.io/badge/React-17.0.1-61dafb)
 ![Next](https://img.shields.io/badge/Next.js-%5E10.1.3-0baf7c)
 
