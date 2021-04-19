@@ -8,7 +8,6 @@ import {
 	ListGroupItem,
 	ListGroupItemHeading,
 	ListGroupItemText,
-	Spinner,
 } from 'reactstrap';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -25,9 +24,10 @@ const ListItem = ({ item }) => {
 	);
 
 	if (error) return <div>failed to load</div>;
-	if (!data) return <div>loading...</div>;
+	if (!data) return <></>;
 
-	const { by, title, url, score, time, descendants } = data;
+	const { by, title, url, score, time, descendants, id } = data;
+	console.log(data);
 	return (
 		<>
 			<ListGroup>
@@ -49,7 +49,11 @@ const ListItem = ({ item }) => {
 							</span>{' '}
 							{timeAgo(time)} |{' '}
 							<span>
-								<Link href="#">
+								<Link
+									href={{
+										pathname: '/item',
+										query: { name: `${id}` },
+									}}>
 									<a style={{ color: 'inherit' }}>{descendants} comments</a>
 								</Link>
 							</span>
