@@ -43,7 +43,7 @@ const ListItem = ({ item }) => {
 						<ListGroupItemText className="text-muted">
 							{score} points by{' '}
 							<span>
-								<Link href={{ pathname: '/user', query: { name: by } }}>
+								<Link href={{ pathname: '/user', query: { id: by } }}>
 									<a style={{ color: 'inherit' }}>{by}</a>
 								</Link>
 							</span>{' '}
@@ -52,7 +52,7 @@ const ListItem = ({ item }) => {
 								<Link
 									href={{
 										pathname: '/item',
-										query: { name: `${id}` },
+										query: { id: `${id}` },
 									}}>
 									<a style={{ color: 'inherit' }}>{descendants} comments</a>
 								</Link>

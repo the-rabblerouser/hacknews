@@ -9,11 +9,11 @@ import Parser from 'html-react-parser';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const index = () => {
+const user = () => {
 	const router = useRouter();
 
 	const { data, error } = useSWR(
-		`https://hacker-news.firebaseio.com/v0/user/${router.query.name}.json?print=pretty`,
+		`https://hacker-news.firebaseio.com/v0/user/${router.query.id}.json?print=pretty`,
 		fetcher
 	);
 
@@ -60,4 +60,4 @@ const index = () => {
 	);
 };
 
-export default index;
+export default user;
