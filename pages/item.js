@@ -16,8 +16,9 @@ const item = () => {
 	if (!data) return <></>;
 
 	console.log(data);
+	const { kids } = data;
 
-	return <div>hello</div>;
+	return <div>Hello</div>;
 };
 
 export default item;
