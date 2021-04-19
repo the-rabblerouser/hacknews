@@ -19,6 +19,8 @@ const user = () => {
 
 	if (error) return <div>failed to load</div>;
 	if (!data) return <div>loading...</div>;
+
+	const { id, created, karma, about } = data;
 	return (
 		<>
 			<Container style={{ backgroundColor: '#F6F6EF' }}>
@@ -26,12 +28,12 @@ const user = () => {
 					<tbody>
 						<tr>
 							<td>user:</td>
-							<td>{data.id}</td>
+							<td>{id}</td>
 						</tr>
 						<tr>
 							<td>created: </td>
 							<td>
-								{new Date(data.created * 1000)
+								{new Date(created * 1000)
 									.toDateString('en-US')
 									.split(' ')
 									.slice(1)
@@ -40,11 +42,11 @@ const user = () => {
 						</tr>
 						<tr>
 							<td>karma:</td>
-							<td>{data.karma}</td>
+							<td>{karma}</td>
 						</tr>
 						<tr>
 							<td valign="top">about:</td>
-							<td>{!data.about ? '' : Parser(data.about)}</td>
+							<td>{!about ? '' : Parser(about)}</td>
 						</tr>
 					</tbody>
 				</table>
