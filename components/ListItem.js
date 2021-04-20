@@ -26,8 +26,8 @@ const ListItem = ({ item }) => {
 	if (error) return <div>failed to load</div>;
 	if (!data) return <></>;
 
-	const { by, title, url, score, time, descendants, id } = data;
-	console.log(data);
+	const { by, title, url, score, time, descendants, id, kids } = data;
+	console.log(kids);
 	return (
 		<>
 			<ListGroup>
