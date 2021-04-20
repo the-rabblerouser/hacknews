@@ -13,8 +13,20 @@ const Comment = ({ comment }) => {
 
 	if (error) return <div>failed to load</div>;
 	if (!data) return <>no data </>;
-	const { by, text } = data;
-	return <div>{by}</div>;
+	const { by, time, text, kids } = data;
+	return (
+		<>
+			<div>
+				{by} said: {time}
+			</div>
+			<div style={{ marginBottom: '2rem' }}>{text}</div>
+
+			{kids &&
+				kids.map((kid) => (
+					<Comment comment={kid} key={kid} style={{ marginLeft: '3rem' }} />
+				))}
+		</>
+	);
 };
 
 export default Comment;
