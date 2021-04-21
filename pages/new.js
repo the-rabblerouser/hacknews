@@ -7,7 +7,7 @@ const News = () => {
 	const fetcher = (url) => fetch(url).then((res) => res.json());
 
 	const { data, error } = useSWR(
-		`https://hacker-news.firebaseio.com/v0/newsstories.json?print=pretty`,
+		`https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty`,
 		fetcher
 	);
 
