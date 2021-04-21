@@ -16,6 +16,7 @@ const Comment = ({ comment }) => {
 	if (error) return <div>failed to load</div>;
 	if (!data) return <></>;
 	const { by, time, text, kids } = data;
+
 	return (
 		<>
 			<Container>
@@ -25,7 +26,10 @@ const Comment = ({ comment }) => {
 							{by === undefined ? 'deleted' : by}{' '}
 							{by === undefined ? '' : timeAgo(time)}
 						</div>
-						<div className="content">{by === undefined ? 'deleted' : text}</div>
+						<div
+							className="content"
+							dangerouslySetInnerHTML={{ __html: text }}
+						/>
 					</div>
 					{kids && kids.map((kid) => <Comment comment={kid} key={kid} />)}
 				</div>

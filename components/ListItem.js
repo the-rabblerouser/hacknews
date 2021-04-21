@@ -25,7 +25,7 @@ const ListItem = ({ item }) => {
 	if (!data) return <></>;
 
 	const { by, title, url, score, time, descendants, id, kids } = data;
-	console.log(kids);
+
 	return (
 		<>
 			<ListGroup>
