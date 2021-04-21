@@ -1,6 +1,9 @@
 import React from 'react';
+import { Container } from 'reactstrap';
 
 import useSWR from 'swr';
+
+import timeAgo from '../utils/timeAgo';
 
 const Comment = ({ comment }) => {
 	const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -16,15 +19,35 @@ const Comment = ({ comment }) => {
 	const { by, time, text, kids } = data;
 	return (
 		<>
-			<div>
-				{by} said: {time}
-			</div>
-			<div style={{ marginBottom: '2rem' }}>{text}</div>
+			<Container>
+				<div className="commentSection">
+					<div className="comment">
+						<div className="meta">
+							{by} said: {timeAgo(time)}
+						</div>
+						<div className="content">{text}</div>
+					</div>
+					{kids && kids.map((kid) => <Comment comment={kid} key={kid} />)}
+				</div>
+			</Container>
 
-			{kids &&
-				kids.map((kid) => (
-					<Comment comment={kid} key={kid} style={{ marginLeft: '3rem' }} />
-				))}
+			<style jsx>{`
+				.commentSection {
+					background-color: #f6f6ef;
+				}
+				.comment {
+					background-color: #f6f6ef;
+					padding-top: 1rem;
+				}
+
+				.comment .comment {
+					padding-left: 4rem;
+				}
+
+				.content {
+					line-height: 1.6em;
+				}
+			`}</style>
 		</>
 	);
 };
