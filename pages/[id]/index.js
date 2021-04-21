@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
@@ -50,13 +49,6 @@ const user = () => {
 						</tr>
 					</tbody>
 				</table>
-				{/* <div className="mt-3">
-					<Link
-						href={`/[$id]/submissions`}
-						as={`/${router.query.id}/submissions`}>
-						<a style={{ textDecoration: 'underline' }}>submissions</a>
-					</Link>
-				</div> */}
 			</Container>
 		</>
 	);
