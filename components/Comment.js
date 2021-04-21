@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
+import DOMPurify from 'isomorphic-dompurify';
 
 import timeAgo from '../utils/timeAgo';
 
@@ -28,7 +29,7 @@ const Comment = ({ comment }) => {
 						</div>
 						<div
 							className="content"
-							dangerouslySetInnerHTML={{ __html: text }}
+							dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}
 						/>
 					</div>
 					{kids && kids.map((kid) => <Comment comment={kid} key={kid} />)}

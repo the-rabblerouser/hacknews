@@ -24,7 +24,7 @@ const ListItem = ({ item }) => {
 	if (error) return <div>failed to load</div>;
 	if (!data) return <></>;
 
-	const { by, title, url, score, time, descendants, id, kids } = data;
+	const { by, title, url, score, time, descendants, id } = data;
 
 	return (
 		<>
@@ -41,7 +41,7 @@ const ListItem = ({ item }) => {
 						<ListGroupItemText className="text-muted">
 							{score} points by{' '}
 							<span>
-								<Link href={{ pathname: '/user', query: { id: by } }}>
+								<Link href={{ pathname: '/user', query: { name: `${by}` } }}>
 									<a style={{ color: 'inherit' }}>{by}</a>
 								</Link>
 							</span>{' '}

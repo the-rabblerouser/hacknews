@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
-import Parser from 'html-react-parser';
+import DOMPurify from 'isomorphic-dompurify';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -12,13 +12,14 @@ const user = () => {
 	const router = useRouter();
 
 	const { data, error } = useSWR(
-		`https://hacker-news.firebaseio.com/v0/user/${router.query.id}.json?print=pretty`,
+		`https://hacker-news.firebaseio.com/v0/user/${router.query.name}.json?print=pretty`,
 		fetcher
 	);
 
 	if (error) return <div>failed to load</div>;
 	if (!data) return <div>loading...</div>;
 
+	console.log(data);
 	const { id, created, karma, about } = data;
 	return (
 		<>
@@ -45,7 +46,11 @@ const user = () => {
 						</tr>
 						<tr>
 							<td valign="top">about:</td>
-							<td>{!about ? '' : Parser(about)}</td>
+							<td
+								dangerouslySetInnerHTML={{
+									__html: DOMPurify.sanitize(!about ? '' : about),
+								}}
+							/>
 						</tr>
 					</tbody>
 				</table>
