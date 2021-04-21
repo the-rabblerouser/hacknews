@@ -12,7 +12,7 @@ const Ask = () => {
 	);
 
 	if (error) return <div>failed to load</div>;
-	if (!data) return <div>loading...</div>;
+	if (!data) return <div></div>;
 
 	const items = data.slice(0, 30);
 
