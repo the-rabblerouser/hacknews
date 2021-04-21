@@ -1,15 +1,14 @@
 import React from 'react';
 
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
-import Parser from 'html-react-parser';
+import DOMPurify from 'isomorphic-dompurify';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const index = () => {
+const user = () => {
 	const router = useRouter();
 
 	const { data, error } = useSWR(
@@ -19,6 +18,9 @@ const index = () => {
 
 	if (error) return <div>failed to load</div>;
 	if (!data) return <div>loading...</div>;
+
+	console.log(data);
+	const { id, created, karma, about } = data;
 	return (
 		<>
 			<Container style={{ backgroundColor: '#F6F6EF' }}>
@@ -26,12 +28,12 @@ const index = () => {
 					<tbody>
 						<tr>
 							<td>user:</td>
-							<td>{data.id}</td>
+							<td>{id}</td>
 						</tr>
 						<tr>
 							<td>created: </td>
 							<td>
-								{new Date(data.created * 1000)
+								{new Date(created * 1000)
 									.toDateString('en-US')
 									.split(' ')
 									.slice(1)
@@ -40,24 +42,21 @@ const index = () => {
 						</tr>
 						<tr>
 							<td>karma:</td>
-							<td>{data.karma}</td>
+							<td>{karma}</td>
 						</tr>
 						<tr>
 							<td valign="top">about:</td>
-							<td>{!data.about ? '' : Parser(data.about)}</td>
+							<td
+								dangerouslySetInnerHTML={{
+									__html: DOMPurify.sanitize(!about ? '' : about),
+								}}
+							/>
 						</tr>
 					</tbody>
 				</table>
-				{/* <div className="mt-3">
-					<Link
-						href={`/[$id]/submissions`}
-						as={`/${router.query.id}/submissions`}>
-						<a style={{ textDecoration: 'underline' }}>submissions</a>
-					</Link>
-				</div> */}
 			</Container>
 		</>
 	);
 };
 
-export default index;
+export default user;
