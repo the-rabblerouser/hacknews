@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 import useSWR from 'swr';
@@ -12,8 +12,6 @@ import {
 import { v4 as uuidv4 } from 'uuid';
 
 import timeAgo from '../utils/timeAgo';
-
-import styles from '../styles/list.module.css';
 
 const ListItem = ({ item }) => {
 	const fetcher = (url) => fetch(url).then((res) => res.json());

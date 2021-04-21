@@ -14,7 +14,7 @@ const Comment = ({ comment }) => {
 	);
 
 	if (error) return <div>failed to load</div>;
-	if (!data) return <>no data </>;
+	if (!data) return <></>;
 	const { by, time, text, kids } = data;
 	return (
 		<>
@@ -35,9 +35,10 @@ const Comment = ({ comment }) => {
 				.commentSection {
 					background-color: #f6f6ef;
 					border-left: 0.3px solid rgba(201, 201, 201, 0.7);
+					border-right: 0.3px solid rgba(201, 201, 201, 0.7);
 				}
 				.comment {
-					padding: 0rem 1rem 1rem 0rem;
+					padding-bottom: 1rem;
 				}
 
 				.meta {

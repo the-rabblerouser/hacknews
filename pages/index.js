@@ -1,7 +1,6 @@
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
 
-// import List from '../components/List';
 import ListItem from '../components/ListItem';
 
 const Home = () => {
@@ -20,7 +19,6 @@ const Home = () => {
 	return (
 		<>
 			<Container>
-				{/* <List items={data.slice(0, 30)} /> */}
 				{items.map((item) => {
 					return <ListItem item={item} key={item} />;
 				})}
