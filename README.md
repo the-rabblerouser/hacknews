@@ -20,7 +20,6 @@ This is a clone of the site [news.ycombinator.com](news.ycombinator.com) built w
 
 ## Todo
 
-- add comments page to display comments on stories
 
 
 ## Author
