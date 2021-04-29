@@ -38,6 +38,7 @@ const Comment = ({ comment }) => {
 
 			<style jsx>{`
 				.commentSection {
+					width: 100%;
 					background-color: #f6f6ef;
 					border-left: 0.3px solid rgba(201, 201, 201, 0.7);
 					border-right: 0.3px solid rgba(201, 201, 201, 0.7);
@@ -55,6 +56,7 @@ const Comment = ({ comment }) => {
 				}
 
 				.content {
+					overflow-wrap: break-word;
 					font-size: 0.85rem;
 					padding-left: 1rem;
 				}

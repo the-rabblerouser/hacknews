@@ -31,9 +31,9 @@ const ListItem = ({ item }) => {
 			<ListGroup>
 				<div key={uuidv4()}>
 					<ListGroupItem
-						className="ps-5"
-						style={{ backgroundColor: '#F6F6EF' }}>
-						<ListGroupItemHeading>
+						className="ps-4"
+						style={{ backgroundColor: '#F6F6EF', fontSize: '0.8rem' }}>
+						<ListGroupItemHeading style={{ fontSize: '1rem' }}>
 							<a href={url} style={{ color: 'inherit' }}>
 								{title}
 							</a>
