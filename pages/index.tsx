@@ -2,12 +2,10 @@ import { Container } from 'reactstrap';
 import useSWR from 'swr';
 import { fetcher } from '../utils/fetcher';
 
-import { DataProps } from '../types/interfaces';
-
 import ListItem from '../components/ListItem';
 
 const Home = () => {
-	const { data, error }: DataProps = useSWR(
+	const { data, error } = useSWR<number[], undefined>(
 		`https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty`,
 		fetcher
 	);
@@ -15,7 +13,7 @@ const Home = () => {
 	if (error) return <div>failed to load</div>;
 	if (!data) return <div></div>;
 
-	const items: number[] = data.slice(0, 30);
+	const items = data.slice(0, 30);
 
 	return (
 		<>

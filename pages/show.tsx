@@ -1,13 +1,12 @@
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
+import { fetcher } from '../utils/fetcher';
 
 import ListItem from '../components/ListItem';
 
-const News = () => {
-	const fetcher = (url) => fetch(url).then((res) => res.json());
-
-	const { data, error } = useSWR(
-		`https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty`,
+const Show = () => {
+	const { data, error } = useSWR<number[], undefined>(
+		`https://hacker-news.firebaseio.com/v0/showstories.json?print=pretty`,
 		fetcher
 	);
 
@@ -27,4 +26,4 @@ const News = () => {
 	);
 };
 
-export default News;
+export default Show;

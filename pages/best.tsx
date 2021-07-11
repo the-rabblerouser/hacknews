@@ -1,12 +1,11 @@
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
+import { fetcher } from '../utils/fetcher';
 
 import ListItem from '../components/ListItem';
 
 const Best = () => {
-	const fetcher = (url) => fetch(url).then((res) => res.json());
-
-	const { data, error } = useSWR(
+	const { data, error } = useSWR<number[], undefined>(
 		`https://hacker-news.firebaseio.com/v0/beststories.json?print=pretty`,
 		fetcher
 	);
