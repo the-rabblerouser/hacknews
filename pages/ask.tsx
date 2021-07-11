@@ -1,12 +1,13 @@
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
+import { fetcher } from '../utils/fetcher';
+
+import { DataProps } from '../types/interfaces';
 
 import ListItem from '../components/ListItem';
 
 const Ask = () => {
-	const fetcher = (url) => fetch(url).then((res) => res.json());
-
-	const { data, error } = useSWR(
+	const { data, error }: DataProps = useSWR(
 		`https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty`,
 		fetcher
 	);
@@ -14,7 +15,7 @@ const Ask = () => {
 	if (error) return <div>failed to load</div>;
 	if (!data) return <div></div>;
 
-	const items = data.slice(0, 30);
+	const items: number[] = data.slice(0, 30);
 
 	return (
 		<>
