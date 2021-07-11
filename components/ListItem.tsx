@@ -2,6 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 
 import useSWR from 'swr';
+import { fetcher } from '../utils/fetcher';
+
+import { ItemProps } from '../types/interfaces';
 
 import {
 	ListGroup,
@@ -14,9 +17,7 @@ import { v4 as uuidv4 } from 'uuid';
 import timeAgo from '../utils/timeAgo';
 
 const ListItem = ({ item }) => {
-	const fetcher = (url) => fetch(url).then((res) => res.json());
-
-	const { data, error } = useSWR(
+	const { data, error } = useSWR<ItemProps, undefined>(
 		`https://hacker-news.firebaseio.com/v0/item/${item}.json?print=pretty`,
 		fetcher
 	);
@@ -31,14 +32,14 @@ const ListItem = ({ item }) => {
 			<ListGroup>
 				<div key={uuidv4()}>
 					<ListGroupItem
-						className="ps-4"
+						className='ps-4'
 						style={{ backgroundColor: '#F6F6EF', fontSize: '0.8rem' }}>
 						<ListGroupItemHeading style={{ fontSize: '1rem' }}>
 							<a href={url} style={{ color: 'inherit' }}>
 								{title}
 							</a>
 						</ListGroupItemHeading>
-						<ListGroupItemText className="text-muted">
+						<ListGroupItemText className='text-muted'>
 							{score} points by{' '}
 							<span>
 								<Link href={{ pathname: '/user', query: { name: `${by}` } }}>

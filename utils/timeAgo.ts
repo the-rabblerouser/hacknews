@@ -1,4 +1,4 @@
-export default function timeAgo(ts) {
+export default function timeAgo(ts: number) {
 	// This function computes the delta between the
 	// provided timestamp and the current time, then test
 	// the delta for predefined ranges.

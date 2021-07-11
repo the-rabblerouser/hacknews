@@ -5,4 +5,10 @@ export interface ItemProps {
 	created: number;
 	submitted: number[];
 	about: string;
+	by: string;
+	title: string;
+	url: string;
+	score: number;
+	time: number;
+	descendants: number;
 }
