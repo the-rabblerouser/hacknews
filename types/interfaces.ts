@@ -13,3 +13,7 @@ export interface ItemProps {
 	descendants: number;
 	text?: string;
 }
+
+export interface CommentProps {
+	comment: number;
+}
