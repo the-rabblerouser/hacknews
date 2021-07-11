@@ -4,7 +4,7 @@ import useSWR from 'swr';
 import ListItem from '../components/ListItem';
 
 const Home = () => {
-	const fetcher = (url) => fetch(url).then((res) => res.json());
+	const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 	const { data, error } = useSWR(
 		`https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty`,
@@ -19,7 +19,7 @@ const Home = () => {
 	return (
 		<>
 			<Container>
-				{items.map((item) => {
+				{items.map((item: number) => {
 					return <ListItem item={item} key={item} />;
 				})}
 			</Container>
