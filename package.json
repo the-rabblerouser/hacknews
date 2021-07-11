@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/reactstrap": "^8.7.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "isomorphic-dompurify": "^0.13.0",
