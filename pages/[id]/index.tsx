@@ -1,13 +1,13 @@
 import React from 'react';
-
 import { useRouter } from 'next/router';
 
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
+import DOMPurify from 'isomorphic-dompurify';
+
 import { fetcher } from '../../utils/fetcher';
 
 import { ItemProps } from '../../types/interfaces';
-import DOMPurify from 'isomorphic-dompurify';
 
 const user = () => {
 	const router = useRouter();

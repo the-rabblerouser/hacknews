@@ -1,12 +1,12 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { fetcher } from '../utils/fetcher';
-
-import { ItemProps } from '../types/interfaces';
 
 import useSWR from 'swr';
 
 import Comment from '../components/Comment';
+import { fetcher } from '../utils/fetcher';
+
+import { ItemProps } from '../types/interfaces';
 
 const item = () => {
 	const router = useRouter();

@@ -2,10 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 
 import useSWR from 'swr';
-import { fetcher } from '../utils/fetcher';
-
-import { ItemProps } from '../types/interfaces';
-
 import {
 	ListGroup,
 	ListGroupItem,
@@ -15,6 +11,9 @@ import {
 import { v4 as uuidv4 } from 'uuid';
 
 import timeAgo from '../utils/timeAgo';
+import { fetcher } from '../utils/fetcher';
+
+import { ItemProps } from '../types/interfaces';
 
 const ListItem = ({ item }) => {
 	const { data, error } = useSWR<ItemProps, undefined>(

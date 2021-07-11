@@ -1,8 +1,9 @@
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
-import { fetcher } from '../utils/fetcher';
 
 import ListItem from '../components/ListItem';
+
+import { fetcher } from '../utils/fetcher';
 
 const News = () => {
 	const { data, error } = useSWR<number[], undefined>(
