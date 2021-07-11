@@ -1,0 +1,23 @@
+.commentSection {
+	width: 100%;
+	background-color: #f6f6ef;
+	border-left: 0.3px solid rgba(201, 201, 201, 0.7);
+	border-right: 0.3px solid rgba(201, 201, 201, 0.7);
+}
+.comment {
+	padding-bottom: 1rem;
+}
+
+.meta {
+	background-color: #e0dede;
+	padding: 0.2rem;
+	margin-bottom: 0.15rem;
+	color: #424242;
+	font-size: 0.75rem;
+}
+
+.content {
+	overflow-wrap: break-word;
+	font-size: 0.85rem;
+	padding-left: 1rem;
+}

@@ -1,15 +1,16 @@
 import Head from 'next/head';
-
-import '../styles/globals.css';
+import type { AppProps } from 'next/app';
 
 import Navbar from '../components/Navbar';
 
-function MyApp({ Component, pageProps }) {
+import '../styles/globals.css';
+
+function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head>
 				<title>Hacker News</title>
-				<link rel="icon" href="/y18.png" />
+				<link rel='icon' href='/y18.png' />
 			</Head>
 			<Navbar />
 			<Component {...pageProps} />

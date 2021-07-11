@@ -3,11 +3,11 @@ import useSWR from 'swr';
 
 import ListItem from '../components/ListItem';
 
-const News = () => {
-	const fetcher = (url) => fetch(url).then((res) => res.json());
+import { fetcher } from '../utils/fetcher';
 
-	const { data, error } = useSWR(
-		`https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty`,
+const Home = () => {
+	const { data, error } = useSWR<number[], undefined>(
+		`https://hacker-news.firebaseio.com/v0/jobstories.json?print=pretty`,
 		fetcher
 	);
 
@@ -27,4 +27,4 @@ const News = () => {
 	);
 };
 
-export default News;
+export default Home;

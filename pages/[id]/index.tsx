@@ -1,17 +1,18 @@
 import React from 'react';
-
 import { useRouter } from 'next/router';
 
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
 import DOMPurify from 'isomorphic-dompurify';
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+import { fetcher } from '../../utils/fetcher';
+
+import { ItemProps } from '../../types/interfaces';
 
 const user = () => {
 	const router = useRouter();
 
-	const { data, error } = useSWR(
+	const { data, error } = useSWR<ItemProps, undefined>(
 		`https://hacker-news.firebaseio.com/v0/user/${router.query.name}.json?print=pretty`,
 		fetcher
 	);
@@ -19,7 +20,6 @@ const user = () => {
 	if (error) return <div>failed to load</div>;
 	if (!data) return <div>loading...</div>;
 
-	console.log(data);
 	const { id, created, karma, about } = data;
 	return (
 		<>
@@ -34,7 +34,7 @@ const user = () => {
 							<td>created: </td>
 							<td>
 								{new Date(created * 1000)
-									.toDateString('en-US')
+									.toDateString()
 									.split(' ')
 									.slice(1)
 									.join(' ')}
@@ -45,7 +45,7 @@ const user = () => {
 							<td>{karma}</td>
 						</tr>
 						<tr>
-							<td valign="top">about:</td>
+							<td valign='top'>about:</td>
 							<td
 								dangerouslySetInnerHTML={{
 									__html: DOMPurify.sanitize(!about ? '' : about),
