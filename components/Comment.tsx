@@ -3,32 +3,34 @@ import React from 'react';
 import { Container } from 'reactstrap';
 import useSWR from 'swr';
 import DOMPurify from 'isomorphic-dompurify';
+import { fetcher } from '../utils/fetcher';
+
+import { ItemProps, Comment } from '../types/interfaces';
 
 import timeAgo from '../utils/timeAgo';
 
-const Comment = ({ comment }) => {
-	const fetcher = (url) => fetch(url).then((res) => res.json());
-
-	const { data, error } = useSWR(
+const Comment = ({ comment }: Comment) => {
+	const { data, error } = useSWR<ItemProps, undefined>(
 		`https://hacker-news.firebaseio.com/v0/item/${comment}.json?print=pretty`,
 		fetcher
 	);
 
 	if (error) return <div>failed to load</div>;
 	if (!data) return <></>;
+
 	const { by, time, text, kids } = data;
 
 	return (
 		<>
 			<Container>
-				<div className="commentSection">
-					<div className="comment">
-						<div className="meta">
+				<div className='commentSection'>
+					<div className='comment'>
+						<div className='meta'>
 							{by === undefined ? 'deleted' : by}{' '}
 							{by === undefined ? '' : timeAgo(time)}
 						</div>
 						<div
-							className="content"
+							className='content'
 							dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}
 						/>
 					</div>

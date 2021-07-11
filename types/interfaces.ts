@@ -11,4 +11,5 @@ export interface ItemProps {
 	score: number;
 	time: number;
 	descendants: number;
+	text?: string;
 }
